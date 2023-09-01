@@ -1,0 +1,355 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #8cc461;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+  padding-top: 20px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  margin: auto;
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin-top: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.result {
+  display: flex;
+  gap: 20px;
+}
+
+.title {
+  color: white;
+  font-size: 20px;
+}
+
+.pc-score {
+  background-color: white;
+  padding: 10px;
+  text-align: center;
+  border-radius: 7px;
+  width: 120px;
+}
+.pc-score > span {
+  text-transform: uppercase;
+  color: #656565;
+  font-size: 17px;
+  font-weight: 600;
+}
+.pc-score > h1 {
+  font-size: 60px;
+}
+.my-score {
+  background-color: white;
+  padding: 10px;
+  text-align: center;
+  border-radius: 7px;
+  width: 120px;
+}
+.my-score > span {
+  text-transform: uppercase;
+  color: #656565;
+  font-size: 17px;
+  font-weight: 600;
+}
+.my-score > h1 {
+  font-size: 60px;
+}
+
+/* play-area */
+
+.play-area {
+  position: relative;
+  min-height: 200px;
+  max-width: 240px;
+  margin: auto;
+  margin-top: 100px;
+}
+
+.rock {
+  cursor: pointer;
+  width: 120px;
+  height: 120px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  border: 10px solid #0074b6;
+  box-shadow: -1px 1px 11px 0px rgba(0, 0, 0, 0.35),
+    3px 0px 21px 1px #00000033 inset;
+  justify-content: center;
+}
+.rock-position {
+  position: absolute;
+
+  z-index: 12;
+  /* right: 50%;
+  left: 50%; */
+  transform: translate(-50%, -50%);
+}
+.scissors {
+  cursor: pointer;
+  width: 120px;
+  height: 120px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  border: 10px solid #bd00ff;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.scissors-position {
+  /* position */
+  position: absolute;
+  top: 0;
+  box-shadow: -1px 1px 11px 0px rgba(0, 0, 0, 0.35),
+    3px 0px 21px 1px #00000033 inset;
+
+  right: 0;
+  transform: translate(35%, -50%);
+}
+.paper-container {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  align-items: center;
+}
+
+.paper {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  background-color: white;
+  border-radius: 50%;
+  align-items: center;
+  border: 10px solid #ffa943;
+  z-index: 100;
+  box-shadow: -1px 1px 11px 0px rgba(0, 0, 0, 0.35),
+    3px 0px 21px 1px #00000033 inset;
+}
+.paper-position {
+  /* position */
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 25%);
+}
+
+.line {
+  position: absolute;
+  width: 15px;
+  /* border: 15px solid #000000A3 */
+  height: 100%;
+  background-color: #000000a3;
+}
+
+.line-1 {
+  top: 50%;
+  left: 0%;
+  transform-origin: top left;
+  transform: translate(-50%, -50%) rotate(-30deg);
+}
+
+.line-2 {
+  top: 50%;
+  right: 0%;
+  transform-origin: top;
+  transform: translate(-50%, -50%) rotate(30deg);
+}
+
+.line-3 {
+  top: -50%;
+  left: 50%;
+  transform: rotate(90deg);
+}
+
+/* rules */
+.game_rules {
+  font-family: 'Roboto', sans-serif;
+  width: 260px;
+  position: absolute;
+  right: 5%;
+  top: 40%;
+  border: 6px solid white;
+  padding: 15px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #004429;
+  color: white;
+  border-radius: 13px;
+}
+.game_rules > h1 {
+  text-align: center;
+  font-size: 25px;
+}
+.game_rules > ul {
+  padding: 10px 20px;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  list-style-type: square;
+}
+
+/* } */
+
+.game_rules > ul > li::marker {
+  color: #ffd600;
+  font-size: 2em;
+}
+
+.close {
+  position: absolute;
+  top: -13%;
+  right: -13%;
+  background-color: #ff0000;
+  font-size: 28px;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+  border: 6px solid white;
+  font-weight: 600;
+}
+
+.rules {
+  position: absolute;
+  top: 85%;
+  right: 2%;
+  margin-right: 20px;
+  padding: 5px 10px;
+  border: 2px solid white;
+  background-color: transparent;
+  text-transform: uppercase;
+  font-size: 20px;
+  color: white;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.next {
+  display: none;
+  position: absolute;
+  top: 85%;
+  right: 0%;
+  margin-right: 50px;
+  padding: 5px 10px;
+  border: 2px solid white;
+  background-color: transparent;
+  text-transform: uppercase;
+  font-size: 20px;
+  color: white;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+/* Winner Result Page */
+
+.win-container {
+  display: none;
+  margin-top: 5rem;
+  align-items: center;
+  justify-content: center;
+  gap: 8rem;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+}
+.left,
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 23px;
+  z-index: 1000;
+}
+
+.middle {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  margin-top: 3rem;
+}
+.play-again {
+  padding: 10px 25px;
+  border: none;
+  color: #6b6b6b;
+  border-radius: 7px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 600;
+}
+.left > span,
+.right > span {
+  z-index: 1000;
+}
+
+.middle > h1 {
+  font-size: 33px;
+}
+
+.circle {
+  position: relative;
+  width: 175px;
+  height: 175px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #289a27;
+  box-shadow: 0 0 0 25px rgba(66, 167, 76, 0.692), 0 0 0 47px #1da82b50;
+  border-radius: 50%;
+}
+
+/* HURRAY page */
+
+.cup-container {
+  display: none;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 20px;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+}
+.image::before {
+  position: absolute;
+  content: url(./images/win.png);
+  top: 6%;
+  z-index: 1;
+  left: 33%;
+}
+.image > img {
+  width: 100%;
+  height: 100%;
+}
+.cup-container > h1 {
+  font-size: 6rem;
+}
+.cup-container > h2 {
+  font-size: 2rem;
+}
